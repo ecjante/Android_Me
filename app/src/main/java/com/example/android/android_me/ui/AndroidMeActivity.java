@@ -28,5 +28,11 @@ public class AndroidMeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_android_me);
+
+        BodyPartFragment headFragment = new BodyPartFragment();
+
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.head_container, headFragment)
+                .commit();
     }
 }
