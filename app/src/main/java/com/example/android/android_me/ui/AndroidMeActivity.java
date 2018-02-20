@@ -16,8 +16,8 @@
 
 package com.example.android.android_me.ui;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import com.example.android.android_me.R;
 import com.example.android.android_me.data.AndroidImageAssets;
@@ -34,15 +34,18 @@ public class AndroidMeActivity extends AppCompatActivity {
 
             BodyPartFragment headFragment = new BodyPartFragment();
             headFragment.setImageIds(AndroidImageAssets.getHeads());
-            headFragment.setListIndex(0);
+            int headIndex = getIntent().getIntExtra(MainActivity.HEAD_INDEX_EXTRA, 0);
+            headFragment.setListIndex(headIndex);
 
             BodyPartFragment bodyFragment = new BodyPartFragment();
             bodyFragment.setImageIds(AndroidImageAssets.getBodies());
-            bodyFragment.setListIndex(1);
+            int bodyIndex = getIntent().getIntExtra(MainActivity.BODY_INDEX_EXTRA, 0);
+            bodyFragment.setListIndex(bodyIndex);
 
             BodyPartFragment legFragment = new BodyPartFragment();
             legFragment.setImageIds(AndroidImageAssets.getLegs());
-            legFragment.setListIndex(2);
+            int legIndex = getIntent().getIntExtra(MainActivity.LEG_INDEX_EXTRA, 0);
+            legFragment.setListIndex(legIndex);
 
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.head_container, headFragment)

@@ -8,7 +8,8 @@
     <GridView
         android:id="@+id/gv_master_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="7"
         android:adjustViewBounds="true"
         android:columnWidth="@dimen/grid_column_width"
         android:gravity="center"
@@ -21,9 +22,11 @@
     </GridView>
     
     <Button
+        android:id="@+id/next_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center_horizontal"
         android:text="@string/next"/>
+
 </LinearLayout>
