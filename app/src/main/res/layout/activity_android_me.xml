@@ -32,15 +32,15 @@
         <FrameLayout
             android:id="@+id/head_container"
             android:layout_width="match_parent"
-            android:layout_height="180dp" />
+            android:layout_height="@dimen/body_part_fragment_height" />
 
         <FrameLayout android:id="@+id/body_container"
             android:layout_width="match_parent"
-            android:layout_height="180dp" />
+            android:layout_height="@dimen/body_part_fragment_height" />
 
         <FrameLayout android:id="@+id/leg_container"
             android:layout_width="match_parent"
-            android:layout_height="180dp" />
+            android:layout_height="@dimen/body_part_fragment_height" />
 
     </LinearLayout>
 
