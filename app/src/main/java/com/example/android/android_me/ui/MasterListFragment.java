@@ -1,11 +1,13 @@
 package com.example.android.android_me.ui;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.example.android.android_me.R;
@@ -19,7 +21,24 @@ public class MasterListFragment extends Fragment {
 
     private static final String TAG = MasterListFragment.class.getSimpleName();
 
+    OnImageClickListener mCallback;
+
+    public interface OnImageClickListener {
+        void onImageSelected(int position);
+    }
+
     public MasterListFragment() {}
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        try {
+            mCallback = (OnImageClickListener) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement OnImageClickListener");
+        }
+    }
 
     @Nullable
     @Override
@@ -32,6 +51,13 @@ public class MasterListFragment extends Fragment {
         MasterListAdapter adapter = new MasterListAdapter(getContext(), AndroidImageAssets.getAll());
 
         gridView.setAdapter(adapter);
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mCallback.onImageSelected(position);
+            }
+        });
 
         return root;
     }
